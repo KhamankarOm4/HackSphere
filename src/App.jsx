@@ -317,7 +317,7 @@ function App() {
       ), url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80')`
     }}>
       <nav className="navbar glass-effect">
-        <h1>Medicine Inventory</h1>
+        <h1>Med Inventory</h1>
         <div className="nav-links">
           <button 
             className={activeTab === 'dashboard' ? 'active' : ''} 

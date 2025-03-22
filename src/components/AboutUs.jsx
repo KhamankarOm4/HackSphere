@@ -9,10 +9,11 @@ const AboutUs = () => {
         <div className="mission-section">
           <h3>Our Mission</h3>
           <p>
-            To provide an efficient and reliable medicine inventory management system 
-            that helps pharmacies and healthcare facilities maintain optimal stock levels 
-            and ensure medication safety.
-          </p>
+          "To provide an intelligent and comprehensive medicine inventory management system that
+           streamlines stock management, supplier coordination, and prescription handling—ensuring 
+           optimal efficiency, reduced wastage, and enhanced medication safety for pharmacies and 
+           healthcare facilities."
+           </p>
         </div>
 
         <div className="features-section">
@@ -31,19 +32,19 @@ const AboutUs = () => {
           <h3>Our Team</h3>
           <div className="team-members">
             <div className="team-member">
-              <img src="https://placekitten.com/100/100" alt="Team Member" />
-              <h4>John Doe</h4>
-              <p>Lead Developer</p>
+               
+              <h3>Om Khamankar</h3>
+            
             </div>
             <div className="team-member">
-              <img src="https://placekitten.com/101/101" alt="Team Member" />
-              <h4>Jane Smith</h4>
-              <p>UI/UX Designer</p>
+               
+              <h3>Parth Agrawal</h3>
+             
             </div>
             <div className="team-member">
-              <img src="https://placekitten.com/102/102" alt="Team Member" />
-              <h4>Mike Johnson</h4>
-              <p>System Architect</p>
+           
+              <h3>Priyanshu Chakole</h3>
+ 
             </div>
           </div>
         </div>
@@ -52,8 +53,8 @@ const AboutUs = () => {
           <h3>Contact Us</h3>
           <div className="contact-info">
             <p>📧 Email: support@medinventory.com</p>
-            <p>📞 Phone: (555) 123-4567</p>
-            <p>🏢 Address: 123 Healthcare Street, Medical District, City</p>
+            <p>📞 Phone: 98230000457</p>
+            <p>🏢 Address: RCOEM,Gittikhadan,Katol Road ,Nagpur</p>
           </div>
         </div>
       </div>
@@ -61,4 +62,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs; 
+export default AboutUs;
