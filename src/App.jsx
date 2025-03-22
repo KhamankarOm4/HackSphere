@@ -4,6 +4,7 @@ import ChatBot from './components/ChatBot';
 import AboutUs from './components/AboutUs';
 import SupplierManagement from './components/SupplierManagement';
 import DemandForecast from './components/DemandForecast';
+import PrescriptionSystem from './components/PrescriptionSystem';
 
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -348,6 +349,12 @@ function App() {
           >
             Suppliers
           </button>
+          <button 
+            className={activeTab === 'prescription' ? 'active' : ''} 
+            onClick={() => setActiveTab('prescription')}
+          >
+            Prescription System
+          </button>
         </div>
       </nav>
 
@@ -624,6 +631,8 @@ function App() {
             }} 
           />
         )}
+
+        {activeTab === 'prescription' && <PrescriptionSystem medicines={medicines} />}
       </main>
       <ChatBot medicines={medicines} />
     </div>
