@@ -16,6 +16,10 @@ const ChatBot = ({ medicines }) => {
     scrollToBottom();
   }, [messages]);
 
+  const formatPrice = (price) => {
+    return `${window.getComputedStyle(document.documentElement).getPropertyValue('--currency-symbol')}${price}`;
+  };
+
   const handleBotResponse = (userMessage) => {
     const userMessageLower = userMessage.toLowerCase();
     
@@ -132,7 +136,7 @@ const ChatBot = ({ medicines }) => {
       );
       
       if (foundMedicine) {
-        return `${foundMedicine.name} costs $${foundMedicine.price}. Currently ${foundMedicine.quantity} units in stock.`;
+        return `${foundMedicine.name} costs ${formatPrice(foundMedicine.price)}. Currently ${foundMedicine.quantity} units in stock.`;
       }
     }
 
@@ -159,7 +163,7 @@ const ChatBot = ({ medicines }) => {
       
       Stock Information:
       - Quantity: ${foundMedicine.quantity} ${foundMedicine.quantity < 100 ? "⚠️ Low Stock" : "✅"}
-      - Price: $${foundMedicine.price}
+      - Price: ${formatPrice(foundMedicine.price)}
       
       Product Details:
       - Category: ${foundMedicine.category}

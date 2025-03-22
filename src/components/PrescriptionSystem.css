@@ -2,22 +2,41 @@
   max-width: 1200px;
   margin: var(--spacing-xl) auto;
   padding: var(--spacing-xl);
-  background: var(--card-background);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-lg);
+  background: var(--glass-background);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.prescription-system::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: var(--radius-3xl) var(--radius-3xl) 0 0;
 }
 
 .gradient-text {
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
   margin-bottom: var(--spacing-xl);
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .prescription-form {
   margin-bottom: var(--spacing-xl);
+  background: var(--glass-background);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-xl);
+  border: var(--glass-border);
 }
 
 .form-group {
@@ -28,28 +47,40 @@
   display: block;
   margin-bottom: var(--spacing-sm);
   color: var(--text-primary);
-  font-weight: var(--font-weight-medium);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
 }
 
 .form-input {
   width: 100%;
   padding: var(--spacing-md);
   border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
-  background: var(--input-background);
+  border-radius: var(--radius-lg);
+  background: var(--glass-background);
   color: var(--text-primary);
   transition: all var(--transition-fast);
+  font-size: var(--font-size-base);
 }
 
 .form-input:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px var(--primary-color-light);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
   outline: none;
 }
 
 .medicine-search {
-  margin: var(--spacing-lg) 0;
-  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+  padding: var(--spacing-xl);
+  background: var(--glass-background);
+  border-radius: var(--radius-xl);
+  border: var(--glass-border);
+}
+
+.medicine-search h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
 }
 
 .search-container {
@@ -63,14 +94,16 @@
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-secondary);
+  font-size: var(--font-size-lg);
 }
 
 .search-results {
   max-height: 300px;
   overflow-y: auto;
   border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
-  background: var(--input-background);
+  border-radius: var(--radius-lg);
+  background: var(--glass-background);
+  margin-top: var(--spacing-md);
 }
 
 .medicine-item {
@@ -80,7 +113,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color var(--transition-fast);
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-lg);
 }
 
 .medicine-item:last-child {
@@ -89,29 +123,59 @@
 
 .medicine-item:hover {
   background-color: var(--hover-color);
+  transform: translateX(4px);
+  border-radius: var(--radius-xl);
 }
 
 .medicine-name {
-  font-weight: var(--font-weight-medium);
+  font-weight: 600;
   color: var(--text-primary);
+  font-size: var(--font-size-base);
+  flex: 1;
 }
 
 .medicine-stock {
   color: var(--text-secondary);
   font-size: var(--font-size-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--glass-background);
+  border-radius: var(--radius-full);
+  margin: 0 var(--spacing-md);
+}
+
+.medicine-price {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--glass-background);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--primary-color);
 }
 
 .stock-status {
   margin-top: var(--spacing-md);
   padding: var(--spacing-md);
-  border-radius: var(--border-radius-md);
+  border-radius: var(--radius-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: var(--glass-background);
 }
 
 .prescribed-medicines {
-  margin: var(--spacing-lg) 0;
+  margin: var(--spacing-xl) 0;
+  background: var(--glass-background);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-xl);
+  border: var(--glass-border);
+}
+
+.prescribed-medicines h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
 }
 
 .prescribed-medicine {
@@ -120,8 +184,15 @@
   align-items: center;
   padding: var(--spacing-md);
   margin-bottom: var(--spacing-md);
-  background: var(--card-background);
-  border-radius: var(--border-radius-md);
+  background: var(--glass-background);
+  border-radius: var(--radius-lg);
+  border: var(--glass-border);
+  transition: all var(--transition-fast);
+}
+
+.prescribed-medicine:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
 }
 
 .prescribed-medicine .form-input {
@@ -132,8 +203,9 @@
   color: var(--error-color);
   background: var(--error-background);
   padding: var(--spacing-md);
-  border-radius: var(--border-radius-md);
+  border-radius: var(--radius-lg);
   margin: var(--spacing-md) 0;
+  border: 1px solid var(--error-color);
 }
 
 .submit-button {
@@ -141,10 +213,24 @@
   margin-top: var(--spacing-lg);
   padding: var(--spacing-md);
   font-size: var(--font-size-lg);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .created-prescriptions {
   margin-top: var(--spacing-xl);
+  background: var(--glass-background);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-xl);
+  border: var(--glass-border);
+}
+
+.created-prescriptions h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
 }
 
 .prescription-card {
@@ -152,6 +238,10 @@
   opacity: 0;
   transform: translateY(20px);
   transition: all var(--transition-normal);
+  background: var(--glass-background);
+  border-radius: var(--radius-xl);
+  border: var(--glass-border);
+  overflow: hidden;
 }
 
 .prescription-card.fade-in {
@@ -164,16 +254,25 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--spacing-md);
-  padding-bottom: var(--spacing-md);
-  border-bottom: 1px solid var(--border-color);
+  padding: var(--spacing-md);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+.prescription-header h4 {
+  color: white;
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
 }
 
 .prescription-date {
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.9);
   font-size: var(--font-size-sm);
 }
 
 .prescription-details {
+  padding: var(--spacing-lg);
   display: grid;
   gap: var(--spacing-lg);
 }
@@ -181,10 +280,35 @@
 .patient-info {
   display: grid;
   gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--glass-background);
+  border-radius: var(--radius-lg);
+  border: var(--glass-border);
 }
 
 .patient-info p {
   margin: 0;
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.patient-info strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.prescribed-medicines-list {
+  padding: var(--spacing-md);
+  background: var(--glass-background);
+  border-radius: var(--radius-lg);
+  border: var(--glass-border);
+}
+
+.prescribed-medicines-list h5 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
 }
 
 .prescribed-medicines-list ul {
@@ -199,31 +323,66 @@
   display: flex;
   gap: var(--spacing-md);
   padding: var(--spacing-md);
-  background: var(--card-background);
-  border-radius: var(--border-radius-md);
+  background: var(--glass-background);
+  border-radius: var(--radius-lg);
+  border: var(--glass-border);
+  transition: all var(--transition-fast);
+}
+
+.prescribed-medicines-list li:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
 }
 
 .prescription-notes {
   padding: var(--spacing-md);
+  background: var(--glass-background);
+  border-radius: var(--radius-lg);
+  border: var(--glass-border);
+}
+
+.prescription-notes h5 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
 }
 
 .prescription-status {
   display: flex;
   justify-content: flex-end;
+  padding: var(--spacing-md);
 }
 
 @media (max-width: 768px) {
   .prescription-system {
     padding: var(--spacing-md);
+    margin: var(--spacing-md);
+    border-radius: var(--radius-2xl);
   }
 
   .prescribed-medicine {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
   }
 
   .prescribed-medicines-list li {
     flex-direction: column;
     gap: var(--spacing-sm);
+  }
+
+  .prescription-header {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+
+  .medicine-stock {
+    margin: var(--spacing-xs) 0;
+  }
+
+  .medicine-price {
+    align-self: flex-end;
   }
 } 

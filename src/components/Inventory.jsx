@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+const formatPrice = (price) => {
+  return `${window.getComputedStyle(document.documentElement).getPropertyValue('--currency-symbol')}${price}`;
+};
+
 function Inventory() {
   const [medicines] = useState([
     {

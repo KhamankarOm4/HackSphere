@@ -75,6 +75,10 @@ const PrescriptionSystem = ({ medicines }) => {
     }
   };
 
+  const formatPrice = (price) => {
+    return `${window.getComputedStyle(document.documentElement).getPropertyValue('--currency-symbol')}${price}`;
+  };
+
   useEffect(() => {
     // Add fade-in animation to new prescriptions
     const elements = document.querySelectorAll('.prescription-card');
@@ -146,6 +150,7 @@ const PrescriptionSystem = ({ medicines }) => {
                     >
                       <span className="medicine-name">{medicine.name}</span>
                       <span className="medicine-stock">Stock: {medicine.quantity}</span>
+                      <span className="medicine-price">{formatPrice(medicine.price)}</span>
                     </div>
                   ))}
               </div>

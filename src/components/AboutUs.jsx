@@ -25,6 +25,8 @@ const AboutUs = () => {
             <li>Category-based organization</li>
             <li>AI-powered chatbot assistance</li>
             <li>Detailed medicine information</li>
+            <li>Supplier Management</li>
+            <li>Demand Forecast</li>
           </ul>
         </div>
 

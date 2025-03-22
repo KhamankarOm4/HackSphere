@@ -236,6 +236,10 @@ const DemandForecast = ({ medicines }) => {
     return month >= 11 || month <= 2;
   };
 
+  const formatPrice = (price) => {
+    return `${window.getComputedStyle(document.documentElement).getPropertyValue('--currency-symbol')}${price}`;
+  };
+
   return (
     <div className="demand-forecast">
       <h3>AI-Powered Demand Forecast</h3>

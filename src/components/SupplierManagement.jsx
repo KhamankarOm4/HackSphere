@@ -33,6 +33,10 @@ const SupplierManagement = ({ medicines, onUpdateMedicine }) => {
     setLoading(false);
   };
 
+  const formatPrice = (price) => {
+    return `${window.getComputedStyle(document.documentElement).getPropertyValue('--currency-symbol')}${price}`;
+  };
+
   return (
     <div className="supplier-management">
       <div className="predictive-alerts">

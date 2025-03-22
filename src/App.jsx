@@ -5,8 +5,10 @@ import AboutUs from './components/AboutUs';
 import SupplierManagement from './components/SupplierManagement';
 import DemandForecast from './components/DemandForecast';
 import PrescriptionSystem from './components/PrescriptionSystem';
+import Login from './components/Login';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [activeTab, setActiveTab] = useState('dashboard');
   const [medicines, setMedicines] = useState([
     {
@@ -161,6 +163,10 @@ function App() {
   const [sortOrder, setSortOrder] = useState('asc');
   const [editingMedicine, setEditingMedicine] = useState(null);
 
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
   const handleAddMedicine = (e) => {
     e.preventDefault();
     if (editingMedicine) {
@@ -282,7 +288,7 @@ function App() {
     const nearExpiryMeds = medicines.filter(m => getExpiryStatus(m.expiryDate) === 'near-expiry');
     
     if (expiredMeds.length === 0 && nearExpiryMeds.length === 0) return null;
-    
+
     return (
       <div className="expiry-warnings">
         {expiredMeds.length > 0 && (
@@ -308,6 +314,14 @@ function App() {
       </div>
     );
   };
+
+  const formatPrice = (price) => {
+    return `${window.getComputedStyle(document.documentElement).getPropertyValue('--currency-symbol')}${price}`;
+  };
+
+  if (!isLoggedIn) {
+    return <Login onLogin={handleLogin} />;
+  }
 
   return (
     <div className="app" style={{
@@ -337,12 +351,7 @@ function App() {
           >
             Add Medicine
           </button>
-          <button 
-            className={activeTab === 'about' ? 'active' : ''} 
-            onClick={() => setActiveTab('about')}
-          >
-            About Us
-          </button>
+          
           <button 
             className={activeTab === 'suppliers' ? 'active' : ''} 
             onClick={() => setActiveTab('suppliers')}
@@ -354,6 +363,12 @@ function App() {
             onClick={() => setActiveTab('prescription')}
           >
             Prescription System
+          </button>
+          <button 
+            className={activeTab === 'about' ? 'active' : ''} 
+            onClick={() => setActiveTab('about')}
+          >
+            About Us
           </button>
         </div>
       </nav>
@@ -399,10 +414,10 @@ function App() {
                 <div className="stat-content">
                   <h3>Total Value</h3>
                   <p className="value">
-                    ${calculateTotalValue().toLocaleString('en-US', {
+                    {formatPrice(calculateTotalValue().toLocaleString('en-US', {
                       minimumFractionDigits: 2,
                       maximumFractionDigits: 2
-                    })}
+                    }))}
                   </p>
                 </div>
               </div>
@@ -425,7 +440,7 @@ function App() {
                         </div>
                         <div className="alert-details">
                           <p>Category: {med.category}</p>
-                          <p>Price: ${med.price}</p>
+                          <p>Price: {formatPrice(med.price)}</p>
                           <p 
                             className="reorder-text"
                             onClick={() => setActiveTab('suppliers')}
@@ -560,7 +575,7 @@ function App() {
                   />
                 </div>
                 <div className="form-group">
-                  <label className="required-field">Price ($)</label>
+                  <label className="required-field">Price (₹)</label>
                   <input
                     type="number"
                     step="0.01"
